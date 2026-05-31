@@ -5,3 +5,11 @@ test('Check header', async ({ page }) => {
   const header = page.getByTestId('homePgeHeader');
   await expect(header).toBeVisible();
 });
+
+test('Check card list items', async ({ page }) => {
+  await page.goto('');
+  const firstCard = page.getByTestId('catCard_0');
+  const cardListItems = page.getByTestId(/catCard/);
+  await expect(firstCard).toBeVisible();
+  expect(await cardListItems.count()).toBeGreaterThan(0);
+});
