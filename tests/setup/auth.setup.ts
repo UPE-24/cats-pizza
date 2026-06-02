@@ -1,8 +1,8 @@
 import { test as setup } from '@playwright/test';
-import { authFile } from '../../fixtures/app.fixture';
+import { authFile } from '../fixtures/app.fixture';
 import { HomePage } from '../pom/pages/HomePage';
 import { AuthModal } from '../pom/pages/AuthModal';
-import { testUsers } from '../data/testData';
+import { testUsers } from '../pom/data/testData';
 
 setup('Authenticate existing user', async ({ page }) => {
   const homePage = new HomePage(page);

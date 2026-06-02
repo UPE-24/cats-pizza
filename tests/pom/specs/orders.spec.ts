@@ -1,4 +1,4 @@
-import { guestTest as test } from '../../fixtures/app.fixture';
+import { autorizedTest as test } from '../../fixtures/app.fixture';
 import { CleanupApi } from '../api/CleanupApi';
 import { testUsers, testAdress } from '../data/testData';
 test.describe('Orders', () => {
@@ -7,7 +7,7 @@ test.describe('Orders', () => {
   // После тестом отчиска коризну у пользователя по email
   test.afterEach(async ({ request }) => {
     const cleanupApi = new CleanupApi(request);
-    await cleanupApi.deleteUserByEmail(testUsers.existing.email);
+    await cleanupApi.deleteOrdersByEmail(testUsers.existing.email);
   });
   // / Добавить в каризну автризованного пользователя
   test('Autorized user makes order wihout manual login', async ({

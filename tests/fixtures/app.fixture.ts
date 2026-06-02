@@ -34,7 +34,7 @@ const appTest = base.extend<MyFixtures>({
   },
 });
 export const guestTest = appTest;
-export const autorizedTest = appTest.expect<AppOptions>({
+export const autorizedTest = appTest.extend<AppOptions>({
   storageState: authFile,
 });
 export { expect } from '@playwright/test';
