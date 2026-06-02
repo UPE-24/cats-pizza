@@ -1,4 +1,4 @@
-import { test } from '../../fixtures/app.fixture';
+import { guestTest as test } from '../../fixtures/app.fixture';
 
 //Проверка коталога и товра в нем
 test('Cotalog opens and shows card', async ({ homePage }) => {

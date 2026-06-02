@@ -9,15 +9,12 @@ test.describe('Orders', () => {
     const cleanupApi = new CleanupApi(request);
     await cleanupApi.deleteUserByEmail(testUsers.existing.email);
   });
-  // / Добавить в каризну автризованного пользователя
-  test('Autorized user makes order wihout manual login', async ({
-    homePage,
-    checkoutPag,
-    oredersPag,
-  }) => {
+  // Добавить в каризну + аторизоваться
+  test('Mack order with login in checkou', async ({ homePage, checkoutPag, oredersPag }) => {
     await homePage.open();
     await homePage.addFirstCatToCart();
     await homePage.goToCheckoutFromCart();
+    await checkoutPag.singInCheckout(testUsers.existing.email, testUsers.existing.password);
     await checkoutPag.fillAdress(testAdress);
     await checkoutPag.submit();
     await oredersPag.open();
