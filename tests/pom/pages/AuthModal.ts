@@ -33,6 +33,6 @@ export class AuthModal {
   }
   // Унивирсальная проверка на оибку
   async assertError(message: string) {
-    await expect(this.page.getByText(message)).toBeVisible;
+    await expect(this.page.getByText(message)).toBeVisible();
   }
 }

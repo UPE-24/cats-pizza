@@ -4,5 +4,11 @@
     "name": "Test User",
     "email": "test@test.ru",
     "password": "Qwerty"
+  },
+  {
+    "id": "user-e2e-existing",
+    "name": "E2E Existing User",
+    "email": "test3@gmail.com",
+    "password": "qwer"
   }
 ]
