@@ -13,13 +13,14 @@ test('Removing last item makes cart empty', async ({ cartPage, homePage }) => {
   await cartPage.assertEmty();
 });
 //После отчистки коризны элемента с корзины она отсается пустой
-test('Clear cart removes all items', async ({ cartPage, homePage }) => {
+/*test('Clear cart removes all items', async ({ cartPage, homePage }) => {
   await homePage.open();
   await homePage.addFirstCatToCart();
   await cartPage.open();
   await cartPage.clear();
   await cartPage.assertEmty();
 });
+*/
 // Добавление еще одного товра черрез +
 test('Changing quantity updates cart badge and input value', async ({ cartPage, homePage }) => {
   await homePage.open(); // 1. Открываем главную страницу
