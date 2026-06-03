@@ -3,6 +3,7 @@ import { HomePage } from '../pom/pages/HomePage';
 import { AuthModal } from '../pom/pages/AuthModal';
 import { CheckoutPage } from '../pom/pages/CheckoutPage';
 import { OredersPage } from '../pom/pages/OredersPage';
+import { CartPage } from '../pom/pages/CartPage';
 import path from 'path';
 export const authFile = path.join(process.cwd(), 'playwright/.auth/existing-user.json');
 // Объявляем типы  фикстур
@@ -11,26 +12,31 @@ type MyFixtures = {
   authPag: AuthModal;
   checkoutPag: CheckoutPage;
   oredersPag: OredersPage;
+  cartPage: CartPage;
 };
 type AppOptions = {
   storageState: string | undefined;
 };
 const appTest = base.extend<MyFixtures>({
-  homePage: async ({ page }, uсe) => {
+  homePage: async ({ page }, callback) => {
     const homePage = new HomePage(page);
-    await uсe(homePage);
+    await callback(homePage);
   },
-  authPag: async ({ page }, uсe) => {
+  authPag: async ({ page }, callback) => {
     const authPag = new AuthModal(page);
-    await uсe(authPag);
+    await callback(authPag);
   },
-  checkoutPag: async ({ page }, uсe) => {
+  checkoutPag: async ({ page }, callback) => {
     const checkoutPag = new CheckoutPage(page);
-    await uсe(checkoutPag);
+    await callback(checkoutPag);
   },
-  oredersPag: async ({ page }, uсe) => {
+  oredersPag: async ({ page }, callback) => {
     const oredersPag = new OredersPage(page);
-    await uсe(oredersPag);
+    await callback(oredersPag);
+  },
+  cartPage: async ({ page }, callback) => {
+    const cartPage = new CartPage(page);
+    await callback(cartPage);
   },
 });
 export const guestTest = appTest;

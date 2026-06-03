@@ -1,4 +1,4 @@
-import { APIRequestContext } from '@playwright/test';
+import type { APIRequestContext } from '@playwright/test';
 export class CleanupApi {
   constructor(
     private request: APIRequestContext,
@@ -9,13 +9,13 @@ export class CleanupApi {
 
   //Удаление ордера через API по email
   async deleteOrdersByEmail(email: string) {
-    await this.request.delete(`${this.apiUrl}/api/orders/by-email`, {
+    await this.request.delete(`${this.apiUrl}/orders/by-email`, {
       data: { email: email },
     });
   }
   // Удаление User  через API по email
   async deleteUserByEmail(email: string) {
-    await this.request.delete(`${this.apiUrl}/api/users/by-email`, {
+    await this.request.delete(`${this.apiUrl}/users/by-email`, {
       data: { email: email },
     });
   }

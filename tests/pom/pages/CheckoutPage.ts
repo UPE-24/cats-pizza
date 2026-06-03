@@ -29,4 +29,16 @@ export class CheckoutPage {
     await expect(this.page.getByTestId('modeltest')).toHaveText('Заказ оформлен');
     await this.page.getByTestId('cloysSуsubmittedButton').click();
   }
+  // оформление заказа
+  async submitWithoutAdress() {
+    await this.page.getByTestId('approvorder').click();
+  }
+  // Проверка что открта доставка
+  async assertCheckoutOpened() {
+    await expect(this.page.getByTestId('modalTitle')).toHaveText('Оформление доставки');
+  }
+  // провека что поля нужно заполнить
+  async assertValidationError(message: string) {
+    await expect(this.page.getByText(message)).toBeVisible();
+  }
 }

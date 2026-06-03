@@ -31,4 +31,8 @@ export class AuthModal {
   async assertSignedIn() {
     await expect(this.page.getByTestId('singOutButton')).toBeVisible();
   }
+  // Унивирсальная проверка на оибку
+  async assertError(message: string) {
+    await expect(this.page.getByText(message)).toBeVisible;
+  }
 }
