@@ -39,7 +39,9 @@ const appTest = base.extend<MyFixtures>({
     await callback(cartPage);
   },
 });
+//Гость
 export const guestTest = appTest;
+//Авторизация
 export const autorizedTest = appTest.extend<AppOptions>({
   storageState: authFile,
 });
